@@ -43,6 +43,7 @@
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     <maven.compiler.release>${maven.compiler.target}</maven.compiler.release>
+    <automatic.module.name>com.github.jinahya.org.w3.xmldsig.core1.bind</automatic.module.name>
     <sonar.organization>jinahya-github</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
   </properties>
@@ -71,7 +72,7 @@
           <configuration>
             <archive>
               <manifestEntries>
-                <Automatic-Module-Name>com.github.jinahya.org.w3.xmldsig.core1.bind</Automatic-Module-Name>
+                <Automatic-Module-Name>${automatic.module.name}</Automatic-Module-Name>
               </manifestEntries>
             </archive>
           </configuration>
@@ -139,6 +140,10 @@
             <goals>
               <goal>xjc</goal>
             </goals>
+            <configuration>
+              <enableIntrospection>true</enableIntrospection>
+              <episodeFileName>${automatic.module.name}-episode</episodeFileName>
+            </configuration>
           </execution>
         </executions>
       </plugin>
